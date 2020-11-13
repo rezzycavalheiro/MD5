@@ -31,6 +31,8 @@ def readFile(file):
 
 def checkLogin(nameLogin, pwdLogin):
     nameLogin, pwdLogin = nameLogin[0:4], pwdLogin[0:4]
+    # check if name exists in the file, if yes, compare to the password 
+    # split name from pwd with ;
     if((nameLogin == name) and (md5(pwdLogin) == encryptedPwd)):
         print("Login feito com sucesso!")
     else:
