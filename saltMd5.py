@@ -15,8 +15,24 @@ def cadastro():
     if(len(pwd) > 4):
         pwd = pwd[0:4]
     return name, pwd
+    
+def salt(pwd):
+    pwd = pwd.lower()
+    pwd = pwd.replace('a', '4')
+    pwd = pwd.replace('e', '3')
+    pwd = pwd.replace('i', '1')
+    pwd = pwd.replace('o', '0')
+    pwd = pwd.replace('u', '9')
+    pwd = pwd.replace('b', '8')
+    pwd = pwd.replace('z', '2')
+    pwd = pwd.replace('s', '5')
+    pwd = pwd.replace('g', '6')
+    pwd = pwd.replace('t', '7')
+    return pwd
 
 def md5(pwd):
+    pwd = salt(pwd)
+    print(pwd)
     encryptedPwd = hashlib.md5(pwd.encode()).hexdigest()
     return encryptedPwd
 
